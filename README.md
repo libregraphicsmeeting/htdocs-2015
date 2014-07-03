@@ -52,3 +52,6 @@ Currently we have an old version of Gravity Forms for creating forms that are pr
 - Some tweaks to the plugin would be necessary (but since the plugin is not really free...)
 - The code for pulling the data is currently implemented as `.php` files in the theme: they should probably be converted in plugins.
 - Manuel suggest that we could use "his" [minimalistic event manager](https://github.com/ms-studio/minimalistic-event-manager) plugin for WP
+- Louis has proposed:
+  - <http://wordpress.org/support/topic/plugin-events-manager-list-of-attendees>
+  - <http://wordpress.org/support/topic/plugin-events-manager-display-attendees-in-a-page>
