@@ -51,3 +51,4 @@ Currently we have an old version of Gravity Forms for creating forms that are pr
 - Dynamically pulling the data into lists (schedule, ...) is more painful than it should be, but we now have a class for the most tedious part)
 - Some tweaks to the plugin would be necessary (but since the plugin is not really free...)
 - The code for pulling the data is currently implemented as `.php` files in the theme: they should probably be converted in plugins.
+- Manuel suggest that we could use "his" [minimalistic event manager](https://github.com/ms-studio/minimalistic-event-manager) plugin for WP
