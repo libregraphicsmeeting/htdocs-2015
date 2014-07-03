@@ -55,3 +55,6 @@ Currently we have an old version of Gravity Forms for creating forms that are pr
 - Louis has proposed:
   - <http://wordpress.org/support/topic/plugin-events-manager-list-of-attendees>
   - <http://wordpress.org/support/topic/plugin-events-manager-display-attendees-in-a-page>
+  - <http://wordpress.org/plugins/event-registration/>
+  - <http://www.dfactory.eu/plugins/events-maker/>
+  - <http://wordpress.org/plugins/events-manager/>
