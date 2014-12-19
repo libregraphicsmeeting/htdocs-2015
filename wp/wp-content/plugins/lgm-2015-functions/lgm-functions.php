@@ -14,6 +14,17 @@ include_once (plugin_dir_path(__FILE__).'bcf-post-types.php');
 
 
 
+/* Allow Automatic Updates
+ ******************************
+ * http://codex.wordpress.org/Configuring_Automatic_Background_Updates
+ */
+
+add_filter( 'auto_update_plugin', '__return_true' );
+add_filter( 'auto_update_theme', '__return_true' );
+add_filter( 'allow_major_auto_core_updates', '__return_true' );
+
+
+
 /* Allowed FileTypes
  ********************
  * method based on 
@@ -26,6 +37,7 @@ function custom_upload_mimes ( $existing_mimes=array() ) {
 
 		// add your extension to the array
 		$existing_mimes['svg'] = 'image/svg+xml';
+		$existing_mimes['epub'] = 'application/epub+zip';
 
 		// removing existing file types
 		unset( $existing_mimes['bmp'] );
