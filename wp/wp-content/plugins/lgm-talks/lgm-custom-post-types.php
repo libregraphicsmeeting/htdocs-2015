@@ -16,7 +16,8 @@ function bcf_register_post_types() {
 					'show_in_menu' => true,
 					 'menu_icon' => 'dashicons-megaphone', // src: http://melchoyce.github.io/dashicons/
 					// dashicons-admin-post
-					'capability_type' => 'post',
+					'capability_type' => 'talk',
+					'map_meta_cap' => true,
 					'hierarchical' => false,
 					'has_archive'		 => false,
 					'rewrite' => array('slug' => ''),
