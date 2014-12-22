@@ -1,16 +1,12 @@
 <?php
 /*
-Plugin Name: LGM 2015 Functions
+Plugin Name: LGM Sanitize Settings
 Plugin URI: 
-Description: This plugin adds functionality to the LGM 2015 website.
+Description: This plugin adds some useful basic settings.
 Version: 1.0.0
 Author: LGM Infrastructure Team
 Author URI: https://github.com/libregraphicsmeeting/infrastructure/
 */
-
-
-// Post Types
-include_once (plugin_dir_path(__FILE__).'bcf-post-types.php');
 
 
 
