@@ -1,0 +1,24 @@
+p.schedule_time {
+	margin-bottom: 0;
+	padding-bottom: 0;
+}
+.schedule_speaker {
+	font-style:italic;
+}
+
+.schedule_item h3,
+.schedule_item p {
+	margin: 0;
+	padding: 0;
+}
+
+.schedule_item {
+	margin-bottom: 1em;
+	padding-bottom: 1em;
+	border-bottom: 1px dashed #444;
+}
+
+p.schedule_summary {
+	font-size: 90%;
+	margin-top: 0.5em;
+}
