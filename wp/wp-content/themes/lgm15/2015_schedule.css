@@ -1,3 +1,6 @@
+/* @override 
+	http://libregraphicsmeeting.org/2015/wp/wp-content/themes/lgm15/2015_schedule.css */
+
 p.schedule_time {
 	margin-bottom: 0;
 	padding-bottom: 0;
@@ -14,8 +17,14 @@ p.schedule_time {
 
 .schedule_item {
 	margin-bottom: 1em;
-	padding-bottom: 1em;
-	border-bottom: 1px dashed #444;
+}
+
+.schedule_item_presentation,
+.schedule_item_shorttalk,
+.schedule_item_meeting,
+.schedule_item_workshop
+ {
+	padding: 0.5em 0.8em;
 }
 
 p.schedule_summary {
@@ -27,11 +36,19 @@ p.schedule_summary {
 .schedule_item {margin-left:60px;}
 
 .schedule_item_presentation {background-color: #b0b7eb}
+.schedule_item_presentation a, .schedule_item_presentation a:visited{color: #fff;}
 .schedule_item_shorttalk {background-color: #ccd2ff}
 .schedule_item_meeting {background-color: #ffcccc}
-.schedule_item_meeting a {color: #b84f44;}
+.schedule_item_meeting a, .schedule_item_meeting a:visited {color: #b84f44;}
 .schedule_item_workshop {background-color: #ff9999}
-.schedule_item_workshop a {color: #b84f44;}
+.schedule_item_workshop a, .schedule_item_workshop a:visited {color: #b84f44;}
 .schedule_item_coding {background-color: #ebedf7}
-.schedule_item_lightningtalk, .schedule_item_, .schedule_item_specialother {background-color: #0044aa;  color: white}
-.schedule_item_lightningtalk a, .schedule_item_ a, .schedule_item_specialother a {color: #ccd2ff}
+.schedule_item_lightningtalk, .schedule_item_, .schedule_item_specialother {
+	background-color: #0044aa;
+	color: white}
+
+.schedule_item_lightningtalk a,
+.schedule_item_specialother a {
+	color: #ccd2ff
+}
+
