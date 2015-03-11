@@ -88,15 +88,42 @@ Larisa Blazic");
 $formidable_lgm_get_schedule_item_date = null;
 $formidable_lgm_get_schedule_item_time = null;
 
-// Usage: [formidable_lgm_get_mail email=[x] name=[x] title=[x]][/formidable_lgm_get_mail]
-// TODO: check if it is possible to avoid the mangling of the last " and of the new lines...
-// as it is now, it does not fit our needs.
 add_shortcode('formidable_lgm_get_schedule_item', 'formidable_lgm_get_schedule_item');
+/**
+ * Usage: [formidable_lgm_get_mail email=[x] name=[x] title=[x]][/formidable_lgm_get_mail]
+ * TODO: check if it is possible to avoid the mangling of the last " and of the new lines...
+ * as it is now, it does not fit our needs.
+ */
 function formidable_lgm_get_schedule_item($atts, $content="") {
-	global $formidable_lgm_get_schedule_item_date;
-	extract(shortcode_atts(array('date' => '', 'time' => '', 'duration' => '', 'speaker' => '', 'title' => '', 'summary' => ''), $atts));
+	global $formidable_lgm_get_schedule_item_date, $formidable_lgm_get_schedule_item_time;
+	extract(shortcode_atts(array('start' => null, 'end' => null, 'date' => '', 'time' => '', 'duration' => '', 'speaker' => '', 'title' => '', 'summary' => '', 'type' => '', 'biography' => '', 'website' => ''), $atts));
 	remove_filter('the_content', 'wpautop');
 	remove_filter('the_content', 'wptexturize');
+	// echo("<p>".$title."</p>");
+	// echo("<p>".$type."</p>");
+	switch ($type) {
+		case "Presentation (20 minutes)":
+			$type = "presentation";
+		break;
+		case "Birds of a Feather, discussion meeting, hackathon, etc. (2 hours or more)":
+			$type = "meeting";
+		break;
+		case "BREAK":
+			$type = "break";
+		break;
+		case "Workshop (1 or 2 hours)":
+			$type = "workshop";
+		break;
+		default:
+			$type = "other";
+		break;
+	}
+	if ($start) {
+		return "";
+	}
+	if ($end) {
+		return "";
+	}
 	if ($_SERVER['REMOTE_ADDR'] == '178.192.49.222') {
 		// echo($_SERVER['REMOTE_ADDR']."<br>");
 		// echo("<pre>$label:\n".htmlentities(print_r($value, 1))."</pre>\n");
@@ -117,8 +144,20 @@ function formidable_lgm_get_schedule_item($atts, $content="") {
 		$formidable_lgm_get_schedule_item_time = $time;
 	}
 
+	$summary = str_replace("\n", "<br>\n", $summary);
+	if ($biography) {
+		$biography = str_replace("\n", "<br>\n", $biography);
+		$summary .= "<br><br>".$biography;
+	}
+	if ($website) {
+		if (strpos($website, 'http') !== 0) {
+			$website = 'http://'.$website;
+		}
+		$summary .= "<br><br><a href=\"".$website."\">".$website."</a>";
+	}
+
 	$schedule_item = "
-		<div class='schedule_item'>
+		<div class='schedule_item schedule_item_$type'>
 		<p class=\"schedule_speaker\">\$speaker</p>
 		<h3 class=\"schedule_title\">\$title</h3>
 		<p class=\"schedule_summary\">\$summary</p>
@@ -134,7 +173,6 @@ function formidable_lgm_get_schedule_item($atts, $content="") {
 		'$summary' => $summary
 	    )
 	);
-	$content .= "";
 	return $content;
 }
 
