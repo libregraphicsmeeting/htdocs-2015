@@ -179,7 +179,7 @@ function formidable_lgm_get_schedule_item($atts, $content="") {
 
 	$schedule_item = "
 		<div class='schedule_item schedule_item_$type'>
-		<p class=\"schedule_speaker\">\$speaker</p>
+		<p class=\"schedule_speaker\"><a name=\"#\$anchor\"></a>\$speaker</p>
 		<h3 class=\"schedule_title\">\$title</h3>
 		<p class=\"schedule_summary\">\$summary</p>
 		</div>
@@ -188,6 +188,7 @@ function formidable_lgm_get_schedule_item($atts, $content="") {
 	$content .= strtr(
 	    $schedule_item,
 	    array (
+		'$anchor' => strtolower(strtr($speaker.'-'.$title, array(' ' => '-'))),
 		'$title' => $title,
 		'$time' => $time,
 		'$speaker' => $speaker.($speaker_additional ? ", ".str_replace("\n", " ", $speaker_additional) : ''),
