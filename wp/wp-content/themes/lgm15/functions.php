@@ -212,3 +212,12 @@ function formidable_lgm_get_test($atts, $content="") {
 	extract(shortcode_atts(array('name' => ''), $atts));
 	return $content." (".$name.")\n\n<br>\n";
 }
+
+/*
+ Filter for Simple History
+ See https://github.com/libregraphicsmeeting/htdocs-2015/issues/6
+*/
+add_filter("simple_history_db_purge_days_interval", function($days) {
+  $days = 10;
+  return $days;
+});
